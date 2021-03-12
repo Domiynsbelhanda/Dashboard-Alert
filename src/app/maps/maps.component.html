@@ -1,0 +1,43 @@
+<div id="map"></div>
+
+<div id="informations" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">INFORMATIONS : </h4>
+        </div>
+        <div class="modal-body">
+          <p>Nom : {{ value['user'].name }}</p>
+          <p>Email : {{ value['user'].email }}</p>
+          <p>Adresse : {{ value['user'].adresse }}</p>
+          <p>Téléphone : {{ value['user'].telephone }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+
+  <div id="newInfos" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">ALERTES : </h4>
+        </div>
+        <div class="modal-body">
+          <p>Vous avez une nouvelle alerte, cliquez sur le marqueur pour plus des détails.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>

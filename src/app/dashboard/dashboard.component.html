@@ -1,0 +1,84 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-header card-header-warning">
+                    <h4 class="card-title">TOUTE LES ALERTES</h4>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-warning">
+                            <th>N°</th>
+                            <th>Par</th>
+                            <th>N° Plaque</th>
+                            <th>Téléphone</th>
+                            <th>Email</th>
+                            <th>Date</th>
+                            <th>Heure</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of item$ | async; let i = index">
+                                <td>{{ i+1 }}</td>
+                                <td>{{ item['user'].name }}</td>
+                                <td>{{ item['car'].plate }}</td>
+                                <td>{{ item['user'].telephone }}</td>
+                                <td>{{ item['user'].email }}</td>
+                                <td>{{ item.time.seconds * 1000 | date:'EEEE, MMMM d, y' }}</td>
+                                <td>{{ item.time.seconds * 1000 | date:'h:mm:ss a zzzz' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-header card-header-warning">
+                    <h4 class="card-title">TRAJETS :</h4>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-warning">
+                            <th>N°</th>
+                            <th>Plaque</th>
+                            <th>Point 0</th>
+                            <th>Point 1</th>
+                            <th>Timing</th>
+                            <th>Date</th>
+                            <th>Heure</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let itemx of items$ | async; let i = index">
+                                <td>{{ i+1 }}</td>
+                                <td>{{ itemx['car'].plate }}</td>
+                                <td>Longitude : {{ itemx['pointsTrajet'][0].longitude }}, Latitude : {{ itemx['pointsTrajet'][0].latitude }}</td>
+                                <td>Longitude : {{ itemx['pointsTrajet'][1].longitude }}, Latitude : {{ itemx['pointsTrajet'][1].latitude }}</td>
+                                <td>{{ itemx.timing }}</td>
+                                <td>{{ itemx.trajetTime.seconds * 1000 | date:'EEEE, MMMM d, y' }}</td>
+                                <td>{{ itemx.trajetTime.seconds * 1000 | date:'h:mm:ss a zzzz' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      </div>
+      
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card card-chart">
+                  <div class="card-header card-header-success">
+                      <div class="ct-chart" id="dailySalesChart"></div>
+                  </div>
+                  <div class="card-body">
+                      <h4 class="card-title">GRAPHIQUE SELON LES JOURS DE LA SEMAINE</h4>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
